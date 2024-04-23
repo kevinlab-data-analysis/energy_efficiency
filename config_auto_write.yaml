@@ -1,0 +1,88 @@
+DB_parameter:
+  host : 'db-acpe3.pub-cdb.ntruss.com'
+  user : 'viewonly'
+  passwd : 'db_view!@09'
+  db : 'lbems_db'
+
+PMV_parameter:
+  M : 1.2 # 1.72
+  W : 0
+  v_ar : 0.1
+  step : 0.3
+  target_PMV : 0.5
+  PMV_gap : 0.05
+
+2001_parameter:
+  sensor_list : ['d02544fffef0109c']
+  # weather_query : "SELECT * FROM bems_weather WHERE complex_code_pk = '2001' ORDER BY val_date DESC LIMIT 1 OFFSET 5"
+  weather_query : "SELECT complex_code_pk, {temp_before}, {temp}, {hum_before}, {hum}, {weather_before}, {weather} FROM bems_weather WHERE complex_code_pk = '2001' AND val_date = {date}"
+  weather_query_ago : "SELECT  complex_code_pk, {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2001' AND val_date = {date}"
+  weather_query_now : "SELECT  {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2001' AND val_date = {date}"
+  finedust_query : "SELECT * FROM bems_meter_finedust WHERE device_eui = '{sensor_sn}' ORDER BY w_date DESC LIMIT 13"
+  summer_humidity_model_path : './weights/2001/humidity_summer_2001.pth'
+  winter_humidity_model_path : './weights/2001/humidity_winter_2001.pth'
+  XGB_model_path : './weights/2001/XGB_prediction_2001.pkl'
+  LGBM_model_path : './weights/2001/LGBM_prediction_2001.pkl'
+  Tabnet_model_path : './weights/2001/Tabnet_prediction_2001.zip'
+  usage_prediction_model_path : './weights/2001/usage_prediction_meta_model_2001.pkl'
+
+2005_parameter:
+  sensor_list : ['CL-212-WF_163C2A']
+  # weather_query : "SELECT * FROM bems_weather WHERE complex_code_pk = '2005' ORDER BY val_date DESC LIMIT 1 OFFSET 5"
+  weather_query : "SELECT complex_code_pk, {temp_before}, {temp}, {hum_before}, {hum}, {weather_before}, {weather} FROM bems_weather WHERE complex_code_pk = '2005' AND val_date = {date}"
+  weather_query_ago : "SELECT  complex_code_pk, {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2005' AND val_date = {date}"
+  weather_query_now : "SELECT  {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2005' AND val_date = {date}"
+  finedust_query : "SELECT * FROM bems_meter_finedust WHERE device_eui = '{sensor_sn}' ORDER BY w_date DESC LIMIT 13"
+  summer_humidity_model_path : './weights/2005/humidity_summer_2005.pth'
+  winter_humidity_model_path : './weights/2005/humidity_winter_2005.pth'
+  XGB_model_path : './weights/2005/XGB_prediction_2005.pkl'
+  LGBM_model_path : './weights/2005/LGBM_prediction_2005.pkl'
+  Tabnet_model_path : './weights/2005/Tabnet_prediction_2005.zip'
+  usage_prediction_model_path : './weights/2005/usage_prediction_meta_model_2005.pkl'
+
+2030_parameter:
+  sensor_list : ['2030_1', '2030_2', '2030_3']
+  # weather_query : "SELECT * FROM bems_weather WHERE complex_code_pk = '2030' ORDER BY val_date DESC LIMIT 1 OFFSET 5"
+  weather_query : "SELECT complex_code_pk, {temp_before}, {temp}, {hum_before}, {hum}, {weather_before}, {weather} FROM bems_weather WHERE complex_code_pk = '2030' AND val_date = {date}"
+  weather_query_ago : "SELECT  complex_code_pk, {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2030' AND val_date = {date}"
+  weather_query_now : "SELECT  {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2030' AND val_date = {date}"
+  finedust_query : "SELECT * FROM bems_meter_finedust WHERE device_eui = '{sensor_sn}' ORDER BY w_date DESC LIMIT 13"
+  summer_humidity_model_path : './weights/2005/humidity_summer_2005.pth'
+  winter_humidity_model_path : './weights/2005/humidity_winter_2005.pth'
+  XGB_model_path : './weights/2005/XGB_prediction_2005.pkl'
+  LGBM_model_path : './weights/2005/LGBM_prediction_2005.pkl'
+  Tabnet_model_path : './weights/2005/Tabnet_prediction_2005.zip'
+  usage_prediction_model_path : './weights/2005/usage_prediction_meta_model_2005.pkl'
+
+2031_parameter:
+  sensor_list : ['2031_1', '2031_2', '2031_3']
+  # weather_query : "SELECT * FROM bems_weather WHERE complex_code_pk = '2031' ORDER BY val_date DESC LIMIT 1 OFFSET 5"
+  weather_query : "SELECT complex_code_pk, {temp_before}, {temp}, {hum_before}, {hum}, {weather_before}, {weather} FROM bems_weather WHERE complex_code_pk = '2031' AND val_date = {date}"
+  weather_query_ago : "SELECT  complex_code_pk, {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2031' AND val_date = {date}"
+  weather_query_now : "SELECT  {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2031' AND val_date = {date}" 
+  finedust_query : "SELECT * FROM bems_meter_finedust WHERE device_eui = '{sensor_sn}' ORDER BY w_date DESC LIMIT 13"
+  summer_humidity_model_path : './weights/2005/humidity_summer_2005.pth'
+  winter_humidity_model_path : './weights/2005/humidity_winter_2005.pth'
+  XGB_model_path : './weights/2005/XGB_prediction_2005.pkl'
+  LGBM_model_path : './weights/2005/LGBM_prediction_2005.pkl'
+  Tabnet_model_path : './weights/2005/Tabnet_prediction_2005.zip'
+  usage_prediction_model_path : './weights/2005/usage_prediction_meta_model_2005.pkl'
+
+2032_parameter:
+  sensor_list : ['2032_1', '2032_2', '2032_3']
+  # weather_query : "SELECT * FROM bems_weather WHERE complex_code_pk = '2032' ORDER BY val_date DESC LIMIT 1 OFFSET 5"
+  weather_query : "SELECT complex_code_pk, {temp_before}, {temp}, {hum_before}, {hum}, {weather_before}, {weather} FROM bems_weather WHERE complex_code_pk = '2032' AND val_date = {date}"
+  weather_query_ago : "SELECT  complex_code_pk, {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2032' AND val_date = {date}"
+  weather_query_now : "SELECT  {temp}, {hum}, {weather} FROM bems_weather WHERE complex_code_pk = '2032' AND val_date = {date}" 
+  finedust_query : "SELECT * FROM bems_meter_finedust WHERE device_eui = '{sensor_sn}' ORDER BY w_date DESC LIMIT 13"
+  summer_humidity_model_path : './weights/2005/humidity_summer_2005.pth'
+  winter_humidity_model_path : './weights/2005/humidity_winter_2005.pth'
+  XGB_model_path : './weights/2005/XGB_prediction_2005.pkl'
+  LGBM_model_path : './weights/2005/LGBM_prediction_2005.pkl'
+  Tabnet_model_path : './weights/2005/Tabnet_prediction_2005.zip'
+  usage_prediction_model_path : './weights/2005/usage_prediction_meta_model_2005.pkl'
+
+
+
+
+

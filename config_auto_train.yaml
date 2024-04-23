@@ -1,0 +1,201 @@
+default:
+  db: lbems_db
+  host: db-acpe3.pub-cdb.ntruss.com
+  weather_list : [1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 
+                23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 
+                59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76]
+
+2001_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2001_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '985DAD60CBEC%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = 'd02544fffef0109c'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04,
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2001'
+  
+
+  humidity_summer_path : './weights/2001/humidity_summer_2001.pth'
+  humidity_winter_path : './weights/2001/humidity_winter_2001.pth'
+  XGB_save_path : './weights/2001/XGB_prediction_2001.pkl'
+  LGBM_save_path : './weights/2001/LGBM_prediction_2001.pkl'
+  Tabnet_save_path : './weights/2001/Tabnet_prediction_2001'
+  meta_model_save_path : './weights/2001/usage_prediction_meta_model_2001.pkl'
+
+2002_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2002_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2002%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = 'CL-212-WF-163B31'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2002'
+
+  humidity_summer_path : './weights/2002/humidity_summer_2002.pth'
+  humidity_winter_path : './weights/2002/humidity_winter_2002.pth'
+  XGB_save_path : './weights/2002/XGB_prediction_2002.pkl'
+  LGBM_save_path : '.weights/2002/LGBM_prediction_2002.pkl'
+  Tabnet_save_path : './weights/2002/Tabnet_prediction_2002'
+  meta_model_save_path : './weights/2002/usage_prediction_meta_model_2002.pkl'
+
+2005_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2005_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2005%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = 'CL-212-WF_163C2A'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2005'
+
+  humidity_summer_path : './weights/2005/humidity_summer_2005.pth'
+  humidity_winter_path : './weights/2005/humidity_winter_2005.pth'
+  XGB_save_path : './weights/2005/XGB_prediction_2005.pkl'
+  LGBM_save_path : './weights/2005/LGBM_prediction_2005.pkl'
+  Tabnet_save_path : './weights/2005/Tabnet_prediction_2005'
+  meta_model_save_path : './weights/2005/usage_prediction_meta_model_2005.pkl'
+
+2014_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2014_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2014%' ORDER BY sensor_sn ASC
+  meter_finedust1: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2014_1'
+  meter_finedust2: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2014_2'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2014'
+  meter_electric_heating : SELECT * FROM bems_meter_electric_heating WHERE sensor_sn LIKE '2014%' ORDER BY sensor_sn ASC
+
+  humidity_summer_path : './weights/2014/humidity_summer_2014.pth'
+  humidity_winter_path : './weights/2014/humidity_winter_2014.pth'
+  XGB_save_path : './weights/2014/XGB_prediction_2014.pkl'
+  LGBM_save_path : './weights/2014/LGBM_prediction_2014.pkl'
+  Tabnet_save_path : './weights/2014/Tabnet_prediction_2014'
+  meta_model_save_path : './weights/2014/usage_prediction_meta_model_2014.pkl'
+
+
+2017_config:
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2017%' ORDER BY sensor_sn ASC
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2017_ALL'
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2017_1'
+  meter_electric_heating : SELECT * FROM bems_meter_electric_heating WHERE sensor_sn LIKE '2017%' ORDER BY sensor_sn ASC
+
+2023_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2023_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn = '2023_1_5'
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2023_1'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2023'
+
+2030_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2030_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2030%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2030_1'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2030'
+
+  humidity_summer_path : './weights/2030/humidity_summer_2030.pth'
+  humidity_winter_path : './weights/2030/humidity_winter_2030.pth'
+  XGB_save_path : './weights/2030/XGB_prediction_2030.pkl'
+  LGBM_save_path : '.weights/2030/LGBM_prediction_2030.pkl'
+  Tabnet_save_path : './weights/2030/Tabnet_prediction_2030'
+  meta_model_save_path : './weights/2030/usage_prediction_meta_model_2030.pkl'
+
+2031_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2031_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2031%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2031_1'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2031'
+
+  humidity_summer_path : './weights/2031/humidity_summer_2031.pth'
+  humidity_winter_path : './weights/2031/humidity_winter_2031.pth'
+  XGB_save_path : './weights/2031/XGB_prediction_2031.pkl'
+  LGBM_save_path : '.weights/2031/LGBM_prediction_2031.pkl'
+  Tabnet_save_path : './weights/2031/Tabnet_prediction_2031'
+  meta_model_save_path : './weights/2031/usage_prediction_meta_model_2031.pkl'
+
+2032_config:
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2032_ALL'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2032%' ORDER BY sensor_sn ASC
+  meter_finedust: SELECT reg_date, temperature, humidity FROM bems_meter_finedust WHERE device_eui = '2032_1'
+  meter_weather: |
+    SELECT val_date, temperature_00, temperature_01, temperature_02, temperature_03, temperature_04, 
+    temperature_05, temperature_06,temperature_07, temperature_08,temperature_09, temperature_10, temperature_11, 
+    temperature_12, temperature_13, temperature_14, temperature_15, temperature_16,temperature_17, temperature_18,
+    temperature_19,temperature_20,temperature_21,temperature_22, temperature_23, humidity_00, humidity_01, humidity_02, 
+    humidity_03, humidity_04, humidity_05, humidity_06,humidity_07, humidity_08, humidity_09, humidity_10, humidity_11, 
+    humidity_12, humidity_13, humidity_14, humidity_15, humidity_16, humidity_17, humidity_18, humidity_19, humidity_20, 
+    humidity_21, humidity_22, humidity_23, weather_00, weather_01, weather_02, weather_03, weather_04, weather_05, 
+    weather_06, weather_07, weather_08, weather_09, weather_10, weather_11, weather_12, weather_13, weather_14, weather_15, 
+    weather_16, weather_17, weather_18, weather_19, weather_20, weather_21, weather_22, weather_23 FROM bems_weather WHERE complex_code_pk = '2032'
+
+  humidity_summer_path : './weights/2032/humidity_summer_2032.pth'
+  humidity_winter_path : './weights/2032/humidity_winter_2032.pth'
+  XGB_save_path : './weights/2032/XGB_prediction_2032.pkl'
+  LGBM_save_path : '.weights/2032/LGBM_prediction_2032.pkl'
+  Tabnet_save_path : './weights/2032/Tabnet_prediction_2032'
+  meta_model_save_path : './weights/2032/usage_prediction_meta_model_2032.pkl'
+
+
+
+2040_config:
+  meter_finedust: SELECT sensor_sn, val_date, total_wh FROM bems_meter_finedust WHERE device_eui = '230825757CC4'
+  meter_electric_cold : SELECT sensor_sn, val_date, total_wh FROM bems_meter_electric_cold WHERE sensor_sn LIKE '2040%' ORDER BY sensor_sn ASC
+  meter_electric: SELECT * FROM bems_meter_electric WHERE sensor_sn = '2040_ALL'
+  meter_weather: SELECT * FROM bems_weather WHERE complex_code_pk = '2040'
+
+outlier:
+  iqr_small : 1.5
+  small : 2
+  medium : 3
+  large : 4
+  very_large : 5
